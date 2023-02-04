@@ -1,16 +1,6 @@
 import React from 'react'
-import Link from 'next/link'
-
-const links = [
-  {
-    label: 'Home',
-    route: '/'
-  },
-  {
-    label: 'About',
-    route: '/about'
-  }
-]
+import Navigation from './components/Navigation'
+import '../styles/globals.css'
 
 export default function RootLayout ({ children }: { children: React.ReactNode }) {
   return (
@@ -19,20 +9,11 @@ export default function RootLayout ({ children }: { children: React.ReactNode })
         <title>Next 13 App</title>
       </head>
       <body>
-        <nav>
-          <ul>
-            {
-              links.map(({ label, route }) => (
-                <li key={route}>
-                  <Link href={route}>
-                    {label}
-                  </Link>
-                </li>
-              ))
-            }
-          </ul>
-        </nav>
-        {children}
+        <Navigation />
+        <div style={{ padding: '20px' }}>
+          <h1 style={{ marginBottom: '20px' }}>App</h1>
+          {children}
+        </div>
       </body>
     </html>
   )
